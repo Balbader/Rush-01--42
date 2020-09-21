@@ -6,7 +6,7 @@
 /*   By: threiss <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/19 17:44:46 by threiss           #+#    #+#             */
-/*   Updated: 2020/09/19 22:06:31 by threiss          ###   ########.fr       */
+/*   Updated: 2020/09/20 23:34:29 by threiss          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,86 +19,62 @@ int		ft_check_line_col(char **tab, int line, int col, char nb)
 
 	i_line = 1;
 	i_col = 1;
-	while (i_line < line)
-	{
-		if (tab[i_line][1] == nb)
-			return (0);
-		i_line++;
-	}
 	while (i_col < col)
 	{
-		if (tab[1][i_col] == nb)
+		if (tab[line][i_col] == nb)
 			return (0);
 		i_col++;
 	}
+	while (i_line < line)
+	{
+		if (tab[i_line][col] == nb)
+			return (0);
+		i_line++;
+	}
 	return (1);
 }
 
-int		ft_check_views(char **tab, int line, int col)
+int		ft_check_views_col(char **tab, int col)
 {
 	int		i;
 	int		view;
-
+	int 	max;
 	i = 1;
 	view = 1;
-	while (i < 4)					// line
+	max = 0;
+	while (i < 5)
 	{
-		if (tab[line][i] < tab[line][i + 1])
+		if (max < tab[i][col])
+		{
+			max = tab[i][col];
 			view++;
+		}
 		i++;
 	}
-	if (view != tab[line][0])
-		return (0);
-
-	i = 4;
-	view = 1;
-	while (i > 1)					// line
-	{
-		if (tab[line][i] < tab[line][i - 1])
-			view++;
-		i++;
-	}
-	if (view != tab[line][5])
-		return (0);
-	i = 1;
-	view = 1;
-	while (i < 4)					// col
-	{
-		if (tab[i][col] < tab[i + 1][col])
-			view++;
-		i++;
-	}
-	if (view != tab[0][col])
-		return (0);
-	i = 4;
-	view = 1;
-	while (i > 1)					// col
-	{
-		if (tab[i][col] < tab[i - 1][col])
-			view++;
-		i++;
-	}
-	if (view != tab[5][col])
+	if ((view + 48) != tab[0][col])
 		return (0);
 	return (1);
 }
 
-
-/*{
-	char	view_up;		// delete view_variables if no lines left
-	char	view_down;
-	char	view_left;
-	char	view_right;
+int		ft_check_views_line(char **tab, int line)
+{
 	int		i;
+	int		view;
+	int		max;
 
-	view_up = tab[0][col];
-	ft_putchar(view_up);
-	view_down = tab[5][col];
-	ft_putchar(view_down);
-	view_left = tab[line][0];
-	ft_putchar(view_left);
-	view_right = tab[line][5];
-	ft_putchar(view_right);
-	// check views == last nb in line/col
+	i = 1;
+	view = 1;
+	max = 0;
+	while (i < 5)
+	{
+		if (max < tab[line][i + 1])
+		{
+			max = tab[line][i + 1];
+			view++;
+		}
+		i++;
+	}
+	if ((view + 48) != tab[line][0])
+		return (0);
 	return (1);
-}*/
+}

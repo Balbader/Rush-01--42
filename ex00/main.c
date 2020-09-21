@@ -6,7 +6,7 @@
 /*   By: threiss <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/19 11:20:15 by threiss           #+#    #+#             */
-/*   Updated: 2020/09/19 22:06:26 by threiss          ###   ########.fr       */
+/*   Updated: 2020/09/20 23:36:55 by threiss          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,14 +17,13 @@ int		main(int ac, char **av)
 	char		**tab;
 	if (ac == 2)
 	{
-		if (check_param(av[1]))		// if params are ok (0 - 4, space % 2 etc)
+		if (check_param(av[1]))
 		{
-			tab = ft_fill_tab(ft_init_malloc(), av[1]); // malloc +  0's
+			tab = ft_fill_tab(ft_init_malloc(), av[1]);
 			ft_backtracking(tab, 1, 1, '1');
-		//	ft_print_tab(tab);
 		}
 		else
-			ft_putchar('N');
+			write(1, "Error", 5);
 	}
 	else
 		write(1, "Error", 5);

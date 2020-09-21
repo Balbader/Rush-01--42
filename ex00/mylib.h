@@ -6,7 +6,7 @@
 /*   By: threiss <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/19 11:25:16 by threiss           #+#    #+#             */
-/*   Updated: 2020/09/19 22:06:34 by threiss          ###   ########.fr       */
+/*   Updated: 2020/09/20 23:36:11 by threiss          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,6 @@ char	**ft_fill_inner_tab(char **tab);
 void	ft_print_tab(char **tab);
 int		ft_check_case_views(char ** tab, int line, int col);
 int		ft_backtracking(char **tab, int line, int col, char nb);
-int		ft_full_check(char **tab, int line, int col, char nb);
 int		ft_check_line_col(char **tab, int line, int col, char nb);
-int		ft_check_views(char **tab, int line, int col);
+int		ft_check_views_col(char **tab, int col);
+int		ft_check_views_line(char **tab, int line);

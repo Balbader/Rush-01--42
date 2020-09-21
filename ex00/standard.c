@@ -6,7 +6,7 @@
 /*   By: threiss <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/19 11:25:53 by threiss           #+#    #+#             */
-/*   Updated: 2020/09/19 22:06:29 by threiss          ###   ########.fr       */
+/*   Updated: 2020/09/20 23:38:05 by threiss          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ char	**ft_init_malloc(void)
 	return (tab);
 }
 
-char		**ft_fill_tab(char **tab, char *str)			// lignes à supprimer > 25 lignes
+char		**ft_fill_tab(char **tab, char *str)
 {
 	int		line;
 	int		col;
@@ -52,7 +52,7 @@ char		**ft_fill_tab(char **tab, char *str)			// lignes à supprimer > 25 lignes
 
 	line = 0;
 	i = 0;
-	while (i < 16)			// fill in line 1 + line 6
+	while (i < 16)
 	{
 		col = 1;
 		while (col < 6 - 1)
@@ -64,7 +64,7 @@ char		**ft_fill_tab(char **tab, char *str)			// lignes à supprimer > 25 lignes
 		line = 5;
 	}
 	col = 0;
-	while (i < 32)		// fill in col 1 + col 6
+	while (i < 32)
 	{
 		line = 1;
 		while (line < 6 - 1)
